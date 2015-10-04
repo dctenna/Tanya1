@@ -1,14 +1,25 @@
 #!/bin/bash
+echo "Enter name of file"
+read name
+echo "Enter path to a source folder"
+read source
+echo "Enter path to a destination folder"
+read destin
 
-echo "Checking if file exist in dir2"
-if [ -e /home/dir2/Tanya]; then
-   echo "File Tanya exists in dir2"
+echo "Checking if file exist in destination folder"
+if [ -f $destin/$name ]; then
+   echo "File $name exists in $destin"
 else
-   echo "File Tanya does not exists in dir2"
-   
-   echo "Checking if file exist in dir1"
-if [ -e /home/dir1/Tanya]; then
-   echo "File Tanya exists in dir1"
+   echo "File $name does not exists in $destin"
+fi  
+   echo "Checking if file exist in source folder"
+if [ -f $source/$name ]; then
+   echo "File $name exists in $source"
 else
-   echo "File Tanya does not exists in dir1"
-   
+   echo "File $name does not exists in $source"
+fi
+if [ -s $destin/$name ]; then
+   echo "Size of file $name is not equal 0"
+else
+   echo "Size of file $name is equal 0"
+fi  
