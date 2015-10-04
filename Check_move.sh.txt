@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "Checking if file exist in dir2"
+if [ -e /home/dir2/Tanya]; then
+   echo "File Tanya exists in dir2"
+else
+   echo "File Tanya does not exists in dir2"
+   
+   echo "Checking if file exist in dir1"
+if [ -e /home/dir1/Tanya]; then
+   echo "File Tanya exists in dir1"
+else
+   echo "File Tanya does not exists in dir1"
+   
