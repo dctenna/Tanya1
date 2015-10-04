@@ -1,9 +1,14 @@
 #!/bin/bash
 # Moving of file
-#Preconditions: directories: dir1, dir2; file: Tanya
+#Preconditions: directories: dir1, dir2 are created; file Tanya is created in dir1
 echo "Hello, $USER!"
+echo "Preparing preconditions..."
 cd //
 mkdir dir1 dir2
+pwd
+ls -al
 cd dir1
 touch Tanya
- 
+pwd
+ls -al
+echo "Preconditions are prepared"
