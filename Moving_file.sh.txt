@@ -1,0 +1,8 @@
+!/bin/bash
+# Moving of file
+#Preconditions: directories: dir1, dir2; file: Tanya
+echo "Hello, $USER!"
+mkdir dir1, dir2
+cd dir1
+touch Tanya
+ 
