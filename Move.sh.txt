@@ -6,11 +6,15 @@ echo "Hello, $USER!"
 echo "Preconditions:"
 echo "directories dir1, dir2 are created; file Tanya is created in dir1"
 echo "Preparing preconditions..."
-if [ -e /home/dir1]; then
-   rm -rf dir1
+$dir1=/home/dir1
+$dir2=/home/dir2
+if [ -e $dir1]; 
+then
+	rm -rf $dir1
 fi
-if [ -e /home/dir2]; then
-   rm -rf dir2
+if [ -e $dir2]; 
+then
+	rm -rf $dir2
 fi
 cd /home
 mkdir dir1 dir2
@@ -23,9 +27,9 @@ ls
 echo "Preconditions are prepared"
 
 echo "Moving file"
-echo "Enter full path to a source file"
+echo "Enter path to a source file"
 read source
-echo "Enter full path to a destination folder"
+echo "Enter path to a destination folder"
 read destin
 mv @source @destin
 echo "File is moved from @source to @destin"
