@@ -6,9 +6,9 @@ echo "Preparing preconditions..."
 cd //
 mkdir dir1 dir2
 pwd
-ls -al
+ls
 cd dir1
 touch Tanya
 pwd
-ls -al
+ls
 echo "Preconditions are prepared"
