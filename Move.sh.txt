@@ -12,7 +12,7 @@ if [ -d "$dir1" ]
 then
 	rm -rf $dir1
 fi
-if [ -d "$dir2 ]
+if [ -d "$dir2" ]
 then
 	rm -rf $dir2
 fi
