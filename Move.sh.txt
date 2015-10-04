@@ -8,13 +8,13 @@ echo "directories dir1, dir2 are created; file Tanya is created in dir1"
 echo "Preparing preconditions..."
 dir1=/home/dir1
 dir2=/home/dir2
-if[ -d "$dir1" ]
+if [ -d "$dir1" ]
 then
-rm -rf $dir1
+	rm -rf $dir1
 fi
 if [ -d "$dir2 ]
 then
-rm -rf $dir2
+	rm -rf $dir2
 fi
 cd /home
 mkdir dir1 dir2
