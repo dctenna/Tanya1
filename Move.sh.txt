@@ -3,7 +3,7 @@
 # Moving of file
 echo "Hello, $USER!"
 
-while [ "$yn" != "Y|n" ]; do
+while [ "$yn" != "Y" ]; do
     read -p "Do you wish to to move some file?" yn
     case $yn in
         [Yy]* ) echo "Let\'s start!";;
