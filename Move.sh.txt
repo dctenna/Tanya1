@@ -39,8 +39,6 @@ for the Bourne shell. Released in 1989, it has been distributed widely as
 the shell for the GNU operating system and as a default shell on Linux
 and OS X." >> /home/dir1/Tanya 
 
-pwd
-ls
 echo "Preconditions are prepared"
 
 echo "Moving file"
@@ -52,12 +50,12 @@ mv $source $destin
 
 if [ $? -eq 0 ]; then
     $SETCOLOR_SUCCESS
-    echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
+    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[OK]"
     $SETCOLOR_NORMAL
-    echo "File is moved from $source to $destin"
+    echo -e "\nFile is moved from $source to $destin"
 else
     $SETCOLOR_FAILURE
-    echo -n "$(tput hpa $(tput cols))$(tput cub 6)[fail]"
+    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[fail]"
     $SETCOLOR_NORMAL
-    echo "File is not moved from $source to $destin"
+    echo -e "\nFile is not moved from $source to $destin"
 fi
