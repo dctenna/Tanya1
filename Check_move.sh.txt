@@ -20,8 +20,19 @@ if [ -f $destin/$name ]; then
     $SETCOLOR_NORMAL
     echo -e "\nFile $name exists in $destin"
 	
-	
-	
+	if [[ -s $destin/$name && -f $destin/$name ]]; then
+       $SETCOLOR_SUCCESS
+       echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[OK]"
+       $SETCOLOR_NORMAL
+       echo -e "\nSize of file $name is not equal 0"
+    elif [[-f $destin/$name ]]; then
+       $SETCOLOR_FAILURE
+       echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[fail]"
+       $SETCOLOR_NORMAL
+       echo -e "Size of file $name is equal 0"
+    else
+       break
+    fi  
 else
     $SETCOLOR_FAILURE
     echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[fail]"
@@ -42,17 +53,3 @@ else
     $SETCOLOR_NORMAL
     echo -e "\nFile $name does not exists in $source"
 fi
-
-if [ -s $destin/$name && -f $destin/$name ]; then
-    $SETCOLOR_SUCCESS
-    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[OK]"
-    $SETCOLOR_NORMAL
-    echo -e "\nSize of file $name is not equal 0"
-elif [-f $destin/$name ]; then
-    $SETCOLOR_FAILURE
-    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[fail]"
-    $SETCOLOR_NORMAL
-    echo -e "Size of file $name is equal 0"
-else
-    break
-fi  
