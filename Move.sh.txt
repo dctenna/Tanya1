@@ -16,7 +16,7 @@ while true; do
     esac
 done
 
-echo "Preconditions:
+echo "Preconditions:"
 echo "Directories dir1, dir2 are created. File Tanya is created in dir1"
 echo "Preparing preconditions..."
 dir1=/home/dir1
