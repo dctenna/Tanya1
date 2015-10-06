@@ -3,6 +3,15 @@
 # Moving of file
 echo "Hello, $USER!"
 
+while $yn!=[Yy]; do
+    read -p "Do you wish to to move some file?" yn
+    case $yn in
+        [Yy]* ) echo "Let\'s start!";;
+        [Nn]* ) echo "Bye. Have a nice day!"; exit;;
+        * ) echo "Please, answer Y or N";;
+    esac
+done
+
 echo "Preconditions:\n"
 echo "Directories dir1, dir2 are created. File Tanya is created in dir1\n"
 echo "Preparing preconditions..."
