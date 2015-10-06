@@ -9,7 +9,7 @@ SETCOLOR_NORMAL="echo -en \\033[0;39m"
 echo "Hello, $USER!"
 
 while true; do
-    read -p "Do you wish to to move some file?" yn
+    read -p "Do you wish to move some file?" yn
     case $yn in
         [Yy]* ) echo "Let's start!"; break;;
         [Nn]* ) echo "Bye. Have a nice day!"; exit;;
@@ -17,7 +17,8 @@ while true; do
     esac
 done
 
-echo "Preparing preconditions..."
+#Preparing preconditions:
+
 dir1=/home/dir1
 dir2=/home/dir2
 if [ -d "$dir1" ]
@@ -32,22 +33,23 @@ cd /home
 mkdir dir1 dir2
 cd dir1
 touch Tanya
-
 echo "Bash is a Unix shell and command language written by 
 Brian Fox for the GNU Project as a free software replacement 
 for the Bourne shell. Released in 1989, it has been distributed widely as
 the shell for the GNU operating system and as a default shell on Linux
 and OS X." >> /home/dir1/Tanya 
 
-echo "Preconditions are prepared"
+echo "Preconditions:"
+echo "dir1, dir2 are created in /home/"
+echo "File Tanya is created in dir1."
 
 echo "Moving file"
 echo "Enter path to a source file"
 read source
 echo "Enter path to a destination folder"
 read destin
-mv $source $destin
 echo "Moving file..."
+mv $source $destin
 if [ $? -eq 0 ]; then
     $SETCOLOR_SUCCESS
     echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[OK]"
