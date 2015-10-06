@@ -1,20 +1,22 @@
 #!/bin/bash
 
 # Moving of file
+
+SETCOLOR_SUCCESS="echo -en \\033[1;32m"
+SETCOLOR_FAILURE="echo -en \\033[1;31m"
+SETCOLOR_NORMAL="echo -en \\033[0;39m"
+
 echo "Hello, $USER!"
 
 while true; do
     read -p "Do you wish to to move some file?" yn
     case $yn in
-        [Yy]* ) echo "Let\'s start!"
-		break;;
+        [Yy]* ) echo "Let's start!"; break;;
         [Nn]* ) echo "Bye. Have a nice day!"; exit;;
         * ) echo "Please, answer Y or N";;
     esac
 done
 
-echo "Preconditions:"
-echo "Directories dir1, dir2 are created. File Tanya is created in dir1"
 echo "Preparing preconditions..."
 dir1=/home/dir1
 dir2=/home/dir2
@@ -28,8 +30,6 @@ then
 fi
 cd /home
 mkdir dir1 dir2
-pwd
-ls
 cd dir1
 touch Tanya
 
@@ -49,4 +49,15 @@ read source
 echo "Enter path to a destination folder"
 read destin
 mv $source $destin
-echo "File is moved from $source to $destin"
+
+if [ $? -eq 0 ]; then
+    $SETCOLOR_SUCCESS
+    echo -n "$(tput hpa $(tput cols))$(tput cub 6)[OK]"
+    $SETCOLOR_NORMAL
+    echo "File is moved from $source to $destin"
+else
+    $SETCOLOR_FAILURE
+    echo -n "$(tput hpa $(tput cols))$(tput cub 6)[fail]"
+    $SETCOLOR_NORMAL
+    echo "File is not moved from $source to $destin"
+fi
