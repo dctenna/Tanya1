@@ -3,10 +3,11 @@
 # Moving of file
 echo "Hello, $USER!"
 
-while [ "$yn" != "Y|n" ]; do
-    read -p "Do you wish to to move some file?" yn
+while true; do
+    read -p "Do you wish to to move some file?" read yn
     case $yn in
-        [Yy]* ) echo "Let\'s start!";;
+        [Yy]* ) echo "Let\'s start!"
+		break;;
         [Nn]* ) echo "Bye. Have a nice day!"; exit;;
         * ) echo "Please, answer Y or N";;
     esac
