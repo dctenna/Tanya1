@@ -5,6 +5,9 @@ echo "Hello, $USER!"
 
 while true; do
     read -p "Do you wish to to move some file?" read yn
+
+while true; do
+    read -p "Do you wish to to move some file?" yn
     case $yn in
         [Yy]* ) echo "Let\'s start!"
 		break;;
