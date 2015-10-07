@@ -2,13 +2,18 @@
 
 #Checking restoring
 
+echo "Enter user"
+read $user
+echo "Enter password"
+read $pass
+
 SETCOLOR_SUCCESS="echo -en \\033[1;32m"
 SETCOLOR_FAILURE="echo -en \\033[1;31m"
 SETCOLOR_NORMAL="echo -en \\033[0;39m"
 
 echo "Show all databases:"
 
-mysql -uroot -p -e "Show databases;"
+mysql -u$user -p$pass -e "Show databases;"
 
 echo "Check table Parrots in database Tanya:"
 
@@ -17,7 +22,7 @@ read dbname
 echo "Enter name of table:"
 read table
 
-mysql -uroot -p -e "USE $dbname; SELECT * from $table;"
+mysql -u$user -p$pass -e "USE $dbname; SELECT * from $table;"
 	
 if [ $? == 0 ] ; then
 $SETCOLOR_SUCCESS
