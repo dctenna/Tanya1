@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#Checking restoring
+
+SETCOLOR_SUCCESS="echo -en \\033[1;32m"
+SETCOLOR_FAILURE="echo -en \\033[1;31m"
+SETCOLOR_NORMAL="echo -en \\033[0;39m"
+
+echo "Show all databases:"
+
+mysql -uroot -p -e "Show databases;"
+
+echo "Check table Parrots in database Tanya:"
+
+echo "Enter name of database:"
+read dbname
+echo "Enter name of table:"
+read table
+
+mysql -uroot -p -e "USE $dbname; SELECT * from $table;"
+	
+if [ $? == 0 ] ; then
+$SETCOLOR_SUCCESS
+    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[OK]"
+    $SETCOLOR_NORMAL
+    echo -e "\nRecovering is successful"
+elif; then
+    $SETCOLOR_FAILURE
+    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[fail]"
+    $SETCOLOR_NORMAL
+    echo -e "\nRecovering is failed"
+fi
