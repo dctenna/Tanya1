@@ -27,4 +27,5 @@ mysql -uroot -p -e "Show databases;"
 echo "Preconditions prepared"
 
 echo "Restore $dbname from backup"
-mysql $dbname < "/home/MySQL_backup/$Curdate/$dbname.sql"; 
+cd /home/MySQL_backup/$Curdate/$dbname.sql
+mysql -uroot -p < /home/MySQL_backup/$Curdate/$dbname.sql
