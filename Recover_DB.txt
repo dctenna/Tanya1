@@ -4,10 +4,8 @@
 
 #Create database Tanya:
 
-echo "Enter user"
-read $user
-echo "Enter password"
-read $pass
+$user=root
+$pass=1234
 
 mysql -u$user -p$pass -e "CREATE DATABASE IF NOT EXISTS Tanya;
 	USE Tanya;
