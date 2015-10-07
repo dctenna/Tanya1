@@ -20,7 +20,7 @@ echo "Enter name of database:"
 read dbname
 Curdate=$(date +%Y-%m-%d-%H)
 mkdir -p /home/MySQL_backup/$Curdate
-mysqldump -u$user -p$pass $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
+mysqldump -uroot -p $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
 echo "Backup of $dbname created"
 mysql -uroot -p -e "DROP DATABASE $dbname;"
 echo "$dbname is deleted"
