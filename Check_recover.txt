@@ -24,7 +24,7 @@ $SETCOLOR_SUCCESS
     echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[OK]"
     $SETCOLOR_NORMAL
     echo -e "\nRecovering is successful"
-elif; then
+else
     $SETCOLOR_FAILURE
     echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[fail]"
     $SETCOLOR_NORMAL
