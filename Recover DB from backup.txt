@@ -3,14 +3,13 @@
 #Preconditions:
 
 #Create database Tanya:
-result='mysql -u root -p| SHOW DATABASES| grep Tanya'
-if [ "$result" != "Tanya" ]; then
-    mysql -u root -p | CREATE DATABASE Tanya;
+
+mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS Tanya;
 	USE Tanya;
-	CREATE TABLE Parrots (Name varchar(20), Gender varchar(10), Colour varchar(10));
-	INSERT INTO Parrots (Name,Gender,Colour) VALUES('Kiesha', 'Man', 'Green');
-	INSERT INTO Parrots (Name,Gender,Colour) VALUES('Chica', 'Women', 'Blue');
-fi
+	CREATE TABLE IF NOT EXISTS Parrots (Name, Gender, Colour);
+	INSERT INTO Parrots (Name,Gender,Colour) VALUES('Kiesha', 'M', 'Green');
+	INSERT INTO Parrots (Name,Gender,Colour) VALUES('Chica', 'W', 'Blue');"
+
 echo "Preconditions:"
 echo "DATABASE Tanya with TABLE Parrots was created"
 
