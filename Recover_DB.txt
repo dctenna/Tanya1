@@ -4,10 +4,8 @@
 
 #Create database Tanya:
 
-$user=root
-$pass=1234
 
-mysql -u$user -p$pass -e "CREATE DATABASE IF NOT EXISTS Tanya;
+mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS Tanya;
 	USE Tanya;
 	CREATE TABLE IF NOT EXISTS Parrots (Name varchar(20), Gender char(1), Colour varchar (20));
 	REPLACE INTO Parrots (Name,Gender,Colour) VALUES('Kiesha', 'M', 'Green');
@@ -25,9 +23,9 @@ Curdate=$(date +%Y-%m-%d-%H)
 mkdir -p /home/MySQL_backup/$Curdate
 mysqldump -u$user -p$pass $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
 echo "Backup of $dbname created"
-mysql -u$user -p$pass -e "DROP DATABASE Tanya;"
+mysql -uroot -p -e "DROP DATABASE Tanya;"
 echo "$dbname is deleted"
-mysql -u$user -p$pass -e "Show databases;"
+mysql -uroot -p -e "Show databases;"
 echo "Preconditions prepared"
 
 echo "Restore $dbname from backup"
