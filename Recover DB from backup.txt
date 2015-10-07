@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#Preconditions:
+
+#Create database Tanya:
+result = 'mysql -u root -p | SHOW DATABASES | grep Tanya'
+if [ "$result" != "Tanya" ]; then
+    mysql -u root -p | CREATE DATABASE Tanya;
+	USE Tanya;
+	CREATE TABLE Parrots (Name VARCHAR(20), Gender(20), Colour(10));
+	INSERT INTO Parrots(Name,Gender,Colour) VALUES('Kiesha','Man', 'Green');
+	INSERT INTO Parrots(Name,Gender,Colour) VALUES('Chica','Women', 'Blue');
+fi
+echo "Preconditions:"
+echo "DATABASE Tanya with TABLE Parrots was created"
+
+#Make backup of Tanya:
+#dbpass="pass"
+#DATE_DIR=$(date +%Y-%m-%d-%H)
+#mkdir /home/nelex/MySQL_BKP/${DATE_DIR}
+#for dbname in `echo show databases| mysql -u root -p$dbpass`; do
+#echo "Dump $dbname..."
+#mysqldump -u root -p$dbpass $dbname > "~/MySQL_BKP/${DATE_DIR}/$dbname.sql"
