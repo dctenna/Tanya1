@@ -20,12 +20,12 @@ read dbname
 echo "Creating backup of database"
 Curdate=$(date +%Y-%m-%d-%H)
 mkdir /home/MySQL_backup/$Curdate
-mysqldump -uroot -p $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
+#mysqldump -uroot -p $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
 echo "Backup of $dbname created"
-mysql -uroot -p -e "DROP DATABASE $dbname;"
+#mysql -uroot -p -e "DROP DATABASE $dbname;"
 echo "$dbname is deleted"
-mysql -uroot -p -e "Show databases;"
+#mysql -uroot -p -e "Show databases;"
 echo "Preconditions prepared"
 
-echo "Restore $dbname from backup"
-mysql -uroot -p < /home/MySQL_backup/$Curdate/$dbname.sql
+#echo "Restore $dbname from backup"
+#mysql -uroot -p < /home/MySQL_backup/$Curdate/$dbname.sql
