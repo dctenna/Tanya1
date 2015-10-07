@@ -6,7 +6,7 @@
 
 mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS Tanya;
 	USE Tanya;
-	CREATE TABLE IF NOT EXISTS Parrots (Name varchar(20), Gender char(1), Colourvarchar (20));
+	CREATE TABLE IF NOT EXISTS Parrots (Name varchar(20), Gender char(1), Colour varchar (20));
 	INSERT INTO Parrots (Name,Gender,Colour) VALUES('Kiesha', 'M', 'Green');
 	INSERT INTO Parrots (Name,Gender,Colour) VALUES('Chica', 'W', 'Blue');"
 
