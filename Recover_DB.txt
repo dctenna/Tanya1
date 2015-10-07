@@ -3,10 +3,9 @@
 #Preconditions:
 
 #Create database:
-echo "Enter name of database:"
-read dbname
-mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS $dbname;
-	USE $dbname;
+
+mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS Tanya;
+	USE Tanya;
 	CREATE TABLE IF NOT EXISTS Parrots (Name varchar(20), Gender char(1), Colour varchar (20));
 	REPLACE INTO Parrots (Name,Gender,Colour) VALUES('Kiesha', 'M', 'Green');
 	REPLACE INTO Parrots (Name,Gender,Colour) VALUES('Chica', 'W', 'Blue');"
@@ -15,6 +14,8 @@ echo "Preconditions:"
 echo "DATABASE $dbname with TABLE Parrots was created"
 
 #Make backup of $dbname:
+echo "Enter name of database:"
+read dbname
 
 echo "Creating backup of database"
 Curdate=$(date +%Y-%m-%d-%H)
