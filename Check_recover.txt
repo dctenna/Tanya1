@@ -2,16 +2,16 @@
 
 #Checking restoring
 
-$user=root
-$pass=1234
-
 SETCOLOR_SUCCESS="echo -en \\033[1;32m"
 SETCOLOR_FAILURE="echo -en \\033[1;31m"
 SETCOLOR_NORMAL="echo -en \\033[0;39m"
 
+mysql_config_editor set --login-path=alias_root --host=localhost --user=root --password --skip-warn
+login=--login-path=alias_root
+
 echo "Show all databases:"
 
-mysql -u$user -p$pass -e "Show databases;"
+mysql $login -e "Show databases;"
 
 echo "Check table Parrots in database Tanya:"
 
@@ -20,7 +20,7 @@ read dbname
 echo "Enter name of table:"
 read table
 
-mysql -u$user -p$pass -e "USE $dbname; SELECT * from $table;"
+mysql $login -e "USE $dbname; SELECT * from $table;"
 	
 if [ $? == 0 ] ; then
 $SETCOLOR_SUCCESS
