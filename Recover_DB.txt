@@ -7,7 +7,7 @@ SETCOLOR_NORMAL="echo -en \\033[0;39m"
 #Preconditions:
 
 
-mysql_config_editor set --login-path=alias_root --host=localhost --user=root --password
+mysql_config_editor IF NOT EXISTS set --login-path=alias_root --host=localhost --user=root --password
 login=--login-path=alias_root
 
 #Create database:	
