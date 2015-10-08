@@ -1,13 +1,22 @@
 #!/bin/bash
 
+SETCOLOR_SUCCESS="echo -en \\033[1;32m"
+SETCOLOR_FAILURE="echo -en \\033[1;31m"
+SETCOLOR_NORMAL="echo -en \\033[0;39m"
+
 #Preconditions:
 
-#Create database:
-
+user=tanya
+pass=tanya
+mysql -uroot -p -e "CREATE USER '$user'@'localhost' IDENTIFIED BY '$pass';
+                    GRANT ALL PRIVILEGES ON * . * TO '$user'@'localhost';"
+			
+#Create database:	
+			
 echo "Enter name of database:"
 read dbname
 
-mysql -uroot -p -e "CREATE DATABASE IF NOT EXISTS $dbname;
+mysql -u$user -p$pass -e "CREATE DATABASE IF NOT EXISTS $dbname;
 	USE $dbname;
 	CREATE TABLE IF NOT EXISTS Parrots (Name varchar(20), Gender char(1), Colour varchar (20));
 	REPLACE INTO Parrots (Name,Gender,Colour) VALUES('Kiesha', 'M', 'Green');
@@ -27,15 +36,15 @@ then
 fi
 	
 mkdir -p /home/MySQL_backup/$Curdate
-mysqldump -uroot -p $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
+mysqldump -u$user -p$pass $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
 echo "Backup of $dbname created"
-mysql -uroot -p -e "DROP DATABASE $dbname; CREATE DATABASE $dbname;"
+mysql -u$user -p$pass -e "DROP DATABASE $dbname; CREATE DATABASE $dbname;"
 echo "$dbname is deleted"
-mysql -uroot -p -e "Show databases;"
+mysql -u$user -p$pass -e "Show databases;"
 echo "Preconditions prepared"
 
 echo "Restore $dbname from backup"
-mysql -uroot -p $dbname < "/home/MySQL_backup/$Curdate/$dbname.sql"
+mysql -u$user -p$pass $dbname < "/home/MySQL_backup/$Curdate/$dbname.sql"
 
 if [ $? -eq 0 ]; then
     $SETCOLOR_SUCCESS
