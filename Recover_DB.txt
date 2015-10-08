@@ -28,7 +28,6 @@ fi
 	
 mkdir -p /home/MySQL_backup/$Curdate
 mysqldump -uroot -p $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
-mysqldump --no-data -uroot -p $dbname > "/home/MySQL_backup/$Curdate/$dbname_schema.sql"
 echo "Backup of $dbname created"
 mysql -uroot -p -e "DROP DATABASE $dbname; CREATE DATABASE $dbname;"
 echo "$dbname is deleted"
@@ -36,6 +35,4 @@ mysql -uroot -p -e "Show databases;"
 echo "Preconditions prepared"
 
 echo "Restore $dbname from backup"
-#mysql -uroot -p -$dbname /home/MySQL_backup/$Curdate/$dbname.sql
-mysqlimport -uroot -p $dbname /home/MySQL_backup/$Curdate/$dbname.sql
-mysqlimport -uroot -p $dbname /home/MySQL_backup/$Curdate/$dbname_schema.sql
+mysql -uroot -p $dbname < "/home/MySQL_backup/$Curdate/$dbname.sql"
