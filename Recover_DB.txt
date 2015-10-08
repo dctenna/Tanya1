@@ -36,3 +36,15 @@ echo "Preconditions prepared"
 
 echo "Restore $dbname from backup"
 mysql -uroot -p $dbname < "/home/MySQL_backup/$Curdate/$dbname.sql"
+
+if [ $? -eq 0 ]; then
+    $SETCOLOR_SUCCESS
+    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[OK]"
+    $SETCOLOR_NORMAL
+    echo -e "\nDATABASE $dbname restored"
+else
+    $SETCOLOR_FAILURE
+    echo -n "$(tput hpa $(tput cub 6))$(tput cub 6)[fail]"
+    $SETCOLOR_NORMAL
+    echo -e "\nDATABASE $dbname restored"
+fi
