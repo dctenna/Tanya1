@@ -17,7 +17,7 @@ read dbname
 
 mysql $login -e "CREATE DATABASE IF NOT EXISTS $dbname;
 	USE $dbname;
-	CREATE TABLE IF NOT EXISTS Parrots (id int(10) PRIMARY KEY, Name varchar(20), Gender char(1), Colour varchar (20));
+	CREATE TABLE IF NOT EXISTS Parrots (PRIMARY KEY (P_Id), Name varchar(20), Gender char(1), Colour varchar (20));
 	REPLACE INTO Parrots (id,Name,Gender,Colour) VALUES('1', 'Kiesha', 'M', 'Green');
 	REPLACE INTO Parrots (id,Name,Gender,Colour) VALUES('2', 'Chica', 'W', 'Blue');"
 
