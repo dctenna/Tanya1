@@ -35,4 +35,4 @@ echo "Preconditions prepared"
 
 echo "Restore $dbname from backup"
 #mysql -uroot -p -$dbname /home/MySQL_backup/$Curdate/$dbname.sql
-mysqlimport -uroot -p $dbname /home/MySQL_backup/$Curdate/$dbname.sql
+mysqlimport -uroot -p Tanya /home/MySQL_backup/$Curdate/$dbname.sql
