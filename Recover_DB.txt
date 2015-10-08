@@ -35,7 +35,7 @@ then
 fi
 	
 mkdir -p /home/MySQL_backup/$Curdate
-mysqldump -u$user -p$pass $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
+mysqldump $login $dbname > "/home/MySQL_backup/$Curdate/$dbname.sql"
 echo "Backup of $dbname created"
 mysql $login -e "DROP DATABASE $dbname; CREATE DATABASE $dbname;"
 echo "$dbname is deleted"
