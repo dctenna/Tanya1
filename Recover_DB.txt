@@ -8,7 +8,7 @@ SETCOLOR_NORMAL="echo -en \\033[0;39m"
 
 mysql_config_editor set --login-path=$confeditor
 
-if [$confeditor=0]; then
+if [ $confeditor==0 ]; then
 mysql_config_editor set --login-path=alias_root --host=localhost --user=root --password
 fi
 
